@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: QuotesList(),
   ));
 }
@@ -36,8 +37,15 @@ class _QuotesListState extends State<QuotesList> {
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: quotes.map((quote) => Text("${quote.text} -> ${quote.author}\n")).toList(),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: quotes.map((quote) => QuotesCard(
+                quote:quote,
+                delete: (){
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+            },
+            )).toList(),
           ),
         ),
       ),
