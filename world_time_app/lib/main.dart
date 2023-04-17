@@ -5,13 +5,11 @@ import 'package:world_time_app/Pages/select_location.dart';
 
 void main() {
   runApp(MaterialApp(
-
-    initialRoute: '/home',
+    initialRoute: '/',
     routes: {
       '/': (context) => const Loading(),
       '/home': (context) => const Home(),
       '/location': (context) => const SelectLocation()
     },
-
   ));
 }
